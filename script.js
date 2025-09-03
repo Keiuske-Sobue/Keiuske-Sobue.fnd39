@@ -226,7 +226,7 @@ function test(actual, expected) {
   document.getElementById("flwButton").disabled = true;
   
   function flwClickFunc () {
-      if (flwCounter === 1) {
+      if (flwCounter === 3) {
         gameEndFunc();
       } else if (flwClickButtonMessage === "次の花へGO!!!") {
         nextFlw()
