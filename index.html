@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#000000">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+  
+  <h1 id = "タイトル">
+	  <p>花束作りゲーム！！！</p>
+  </h2>
+
+  <div id = "経過時間管理">
+    <p>
+      <input type="button" value="ゲームスタート" id="startcount" onclick="startShowing();">
+      <input type="button" value="リセット" id="endcount" onclick="stopReset();">
+      <p id="PassageArea">(ここにカウントが表示されます)</p>
+    </p>
+  </div>
+
+  <div  class = "クリア画面">
+    <img id = "クリア画面" src = "クリア画面.png">
+  </div>
+
+  <div id = "花ゲット状況">
+    <p id="GameEnd"> </p>
+    <p id="flwCount"> </p>
+    <p><img id="flwBoxImage"></p>
+    <br>
+  </div>
+
+
+  <div id = "花ゲットゲーム">
+    <p id = "flwEncount"></p>
+    <p>お題をタイプしよう！</p>
+    <p id = "flwClickCount"></p>
+    <input type = "text" id = "入力フォーム">
+    <p id = "お題">test</p>
+    <button id = "flwButton"></button>
+    <p id = "flwGet" ></p>
+    <p id = "じょうろと花の画像">
+      <img id = "じょうろアクション">
+      <img id = "種と花">
+    </p>
+  </div>
+
+　
+
+  <div  class = "クリア画面">
+    <img id = "クリア画面" src = "クリア画面.png">
+  </div>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
