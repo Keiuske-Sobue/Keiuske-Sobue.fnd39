@@ -30,6 +30,7 @@ function test(actual, expected) {
 	function showPassage() {
 		PassSec++;
 		document.getElementById("startcount").disabled = true; // 開始ボタンの無効化
+    document.getElementById("endcount").disabled = true // リセットボタン無効化
 		let msg = PassSec + "秒が経過！ / 制限時間60秒";
 		document.getElementById("PassageArea").innerHTML = msg; // 表示更新
 		if (PassSec >= 60) {　
@@ -72,6 +73,8 @@ function test(actual, expected) {
     document.getElementById("種と花").src = seedFlw;
     document.getElementById("入力フォーム").value = "";
     document.getElementById("入力フォーム").disabled = true;
+    flwClickCounter = 0;
+    document.getElementById("flwClickCount").innerHTML = `${flwClickCounter}/${flwClickTarget}`;
 	}
   
   //入力フォームを最初は無効化
@@ -91,10 +94,10 @@ function test(actual, expected) {
   let flwPoint = 0;
   const flwData = [
     {color : "赤", flwClick : 2},
-    {color : "黄色", flwClick : 3},
-    {color : "白", flwClick : 3},
-    {color : "ピンク", flwClick : 3},
-    {color : "白", flwClick : 3},
+    {color : "黄色", flwClick : 2},
+    {color : "白", flwClick : 2},
+    {color : "ピンク", flwClick : 2},
+    {color : "白", flwClick : 2},
   ]
 
    //クリック数の目標を設定
@@ -182,7 +185,6 @@ function test(actual, expected) {
         seedFlw = `種と花${flwCounter}.png`;
         document.getElementById("種と花").src = seedFlw;
         flwClickCounter = flwClickCounter + 1;
-        flwClickTarget = flwData[flwCounter]["flwClick"];
         document.getElementById("入力フォーム").disabled = true;
         odaiResult = "";
         document.getElementById("お題").textContent = `お題 : ${odaiResult}`;
@@ -211,9 +213,6 @@ function test(actual, expected) {
     document.getElementById("お題").textContent = `お題 : ${odaiResult} => エラー!!!`;
    }
 
-    //
-    
-    
       //★★★花ゲットアクションの定義★★★
       //花ゲット判定に関するクリック数記録機能
       //クリックごとに花カウンター+1、
