@@ -1,6 +1,3 @@
-#タイトル{
-  color : red;
-}
 
 #flwBoxImage{
   max-width: 200px;
@@ -19,13 +16,69 @@
 
 #クリア画面{
   opacity: 0;
-  width : 100%;
-  height: 100%;
+  width : 650px;
+  height: 1500px;
   transition: opacity 3s;
-  object-position: left center;
+  object-position: left top;
   position : fixed;
-  top : 0;
+  top : 00;
   left : 1000;
   object-fit: contain;
   z-index: -1;
+}
+
+body {
+  background-color: darkolivegreen;
+}
+
+#背景{
+  position:fixed;
+  object-position: left center;
+  top : 0;
+  left : 1000;
+  object-fit: contain;
+  z-index : -99;
+  width : 500px;
+}
+
+#タイトル{
+  background-color: blue;
+  color: white;
+  width : 500px;
+  font-family: 'Meiryo';
+}
+
+#PassageArea{
+  background-color :brown;
+  color : white;
+  width : 250px;
+}
+
+#flwCount{
+  background-color: blue;
+  color : white;
+  width : 80px;
+}
+
+#お題をタイプ{
+  background-color: brown;
+  color : white;
+  width : 200px;
+}
+
+#flwClickCount{
+  background-color:blue;
+  color : white;
+  width : 80px;
+}
+
+#お題{
+  background-color: chartreuse;
+  width : 200px;  
+}
+
+#gameend{
+  background-color: red;
+  color : white;
+  width : 8px;
 }
