@@ -30,9 +30,9 @@ function test(actual, expected) {
 	function showPassage() {
 		PassSec++;
 		document.getElementById("startcount").disabled = true; // 開始ボタンの無効化
-		let msg = PassSec + "秒が経過！ / 制限時間120秒";
+		let msg = PassSec + "秒が経過！ / 制限時間60秒";
 		document.getElementById("PassageArea").innerHTML = msg; // 表示更新
-		if (PassSec >= 120) {　
+		if (PassSec >= 60) {　
 			gameEndCheck = "タイムアウト!";
 			document.getElementById("GameEnd").innerHTML = gameEndCheck;
       document.getElementById("GameEnd").style.backgroundColor = "red";
@@ -48,6 +48,7 @@ function test(actual, expected) {
 		PassSec = 0; // カウンタのリセット
 		PassageID = setInterval(showPassage, 1000); // タイマーをセット(1000ms間隔)
     document.getElementById("flwButton").disabled = false;
+    document.getElementById("入力フォーム").disabled = false;
 		// document.getElementById("startcount").disabled = true;   // 開始ボタンの無効化
 	}
 
@@ -70,7 +71,11 @@ function test(actual, expected) {
     seedFlw = `種と花0.png`;
     document.getElementById("種と花").src = seedFlw;
     document.getElementById("入力フォーム").value = "";
+    document.getElementById("入力フォーム").disabled = true;
 	}
+  
+  //入力フォームを最初は無効化
+  document.getElementById("入力フォーム").disabled = true;
 
 	//flwCounterの宣言と花カウンター文の実装
 	　　
@@ -87,9 +92,9 @@ function test(actual, expected) {
   const flwData = [
     {color : "赤", flwClick : 2},
     {color : "黄色", flwClick : 3},
-    {color : "白", flwClick : 4},
-    {color : "ピンク", flwClick : 5},
-    {color : "白", flwClick : 6},
+    {color : "白", flwClick : 3},
+    {color : "ピンク", flwClick : 3},
+    {color : "白", flwClick : 3},
   ]
 
    //クリック数の目標を設定
@@ -107,12 +112,6 @@ function test(actual, expected) {
 
   //花をゲットした際に出す関数を先に定義
   let flwGetMessage = "";
-
-  //花をゲットした際にメッセージを出す関数を先に定義
-  function flwGetFunc () {
-    flwGetMessage = "花ゲット！";
-    document.getElementById("flwGet").innerHTML = flwGetMessage;
-  }
   
   //花クリックゲームのボタン名を定義。クリックorリセット
   let flwClickButtonMessage = "お題をタイプしたらクリック！";
@@ -154,7 +153,6 @@ function test(actual, expected) {
      document.getElementById("flwButton").innerHTML = flwClickButtonMessage;
      document.getElementById("flwButton").disabled = true;
      flwGetMessage = "";
-     document.getElementById("flwGet").innerHTML = flwGetMessage;
      clearImageAppear();
     };
 
@@ -173,7 +171,6 @@ function test(actual, expected) {
       document.getElementById("flwClickCount").innerHTML = `${flwClickCounter}/${flwClickTarget}`;
       document.getElementById("入力フォーム").value = "";
       if ( flwClickCounter === flwClickTarget) {
-        flwGetFunc();
         document.getElementById("flwClickCount").innerHTML = `${flwClickCounter}/${flwClickTarget}`;
         flwCounter = flwCounter + 1;
         flwCountText = flwCounter + "本/5本";
@@ -197,15 +194,14 @@ function test(actual, expected) {
     //次の花へ行くfunction
     function nextFlw() {
       flwClickCounter = 0;
+      document.getElementById("入力フォーム").disabled = false;
       document.getElementById("flwClickCount").innerHTML = `${flwClickCounter}/${flwClickTarget}`;
       flwClickButtonMessage = "お題をタイプしたらクリック！";
       document.getElementById("flwButton").innerHTML = flwClickButtonMessage;
       flwGetMessage = "";
-      document.getElementById("flwGet").innerHTML = flwGetMessage;
       jouroUp();
       seedFlw = `種と花0.png`;
       document.getElementById("種と花").src = seedFlw;
-      document.getElementById("入力フォーム").disabled = false;
     }　
     
 
