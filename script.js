@@ -30,11 +30,13 @@ function test(actual, expected) {
 	function showPassage() {
 		PassSec++;
 		document.getElementById("startcount").disabled = true; // 開始ボタンの無効化
-		let msg = PassSec + "秒が経過！";
+		let msg = PassSec + "秒が経過！ / 制限時間120秒";
 		document.getElementById("PassageArea").innerHTML = msg; // 表示更新
-		if (PassSec >= 1000) {　
+		if (PassSec >= 120) {　
 			gameEndCheck = "タイムアウト!";
 			document.getElementById("GameEnd").innerHTML = gameEndCheck;
+      document.getElementById("GameEnd").style.backgroundColor = "red";
+      document.getElementById("GameEnd").style.width = "150px";
 			clearInterval(PassageID);
 			document.getElementById("endcount").disabled = false;
       document.getElementById("flwButton").disabled = true;
@@ -51,6 +53,7 @@ function test(actual, expected) {
 
 	// 繰り返し処理のリセット
 	function stopReset() {
+    PassSec = 0;
 		clearInterval(PassageID); // タイマーのクリア
 		let msg = "(クリア)";
 		document.getElementById("PassageArea").innerHTML = msg
@@ -66,6 +69,7 @@ function test(actual, expected) {
     jouroUp();
     seedFlw = `種と花0.png`;
     document.getElementById("種と花").src = seedFlw;
+    document.getElementById("入力フォーム").value = "";
 	}
 
 	//flwCounterの宣言と花カウンター文の実装
@@ -226,7 +230,7 @@ function test(actual, expected) {
   document.getElementById("flwButton").disabled = true;
   
   function flwClickFunc () {
-      if (flwCounter === 3) {
+      if (flwCounter === 5) {
         gameEndFunc();
       } else if (flwClickButtonMessage === "次の花へGO!!!") {
         nextFlw()
