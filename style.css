@@ -51,7 +51,8 @@ body {
 #PassageArea{
   background-color :brown;
   color : white;
-  width : 250px;
+  width : 350px;
+  font-size: 25px;
 }
 
 #flwCount{
@@ -64,6 +65,7 @@ body {
   background-color: brown;
   color : white;
   width : 200px;
+  font-size: 20px;
 }
 
 #flwClickCount{
@@ -75,10 +77,16 @@ body {
 #お題{
   background-color: chartreuse;
   width : 200px;  
+  font-size : 18px;
 }
 
 #gameend{
   background-color: red;
   color : white;
   width : 8px;
+}
+
+#入力フォーム{
+  font-size: 18px;
+  
 }
